@@ -1,25 +1,29 @@
 <div class="container">
-  <button type="button" class="btn btn-dark m-3" [routerLink]="['/category/add']">Add new category</button>
+  <button type="button" class="btn btn-dark m-3" [routerLink]="['/books/add']">Add new book</button>
   <table class="table table-striped">
     <thead>
     <tr>
       <th scope="col">#</th>
+      <th scope="col">Book</th>
       <th scope="col">Category</th>
       <th scope="col">DEL</th>
       <th scope="col">Edit</th>
     </tr>
     </thead>
     <tbody>
-    <tr *ngFor="let item of catagories; index as i" (click)="onClick(item.id)" style="cursor: pointer;">
+    <tr *ngFor="let item of books; index as i">
       <th scope="row">{{ i + 1 }}</th>
       <td>      
         {{ item.name }}
       </td>
       <td>
+        {{item.categoryName}}
+      </td>
+      <td>
         <button type="button" class="btn btn-dark" (click)="onDelete(item.id)">Delete</button>
       </td>
       <td>
-        <button type="button" class="btn btn-dark" [routerLink]="['/category/update/', item.id]" >Edit</button>
+        <button type="button" class="btn btn-dark" [routerLink]="['/books/update/', item.id]" >Edit</button>
       </td>
     </tr>
     </tbody>

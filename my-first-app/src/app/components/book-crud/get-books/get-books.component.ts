@@ -1,25 +1,22 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 import { NotifierService } from 'angular-notifier';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { ApiCollectionResponse, ApiResponse } from 'src/app/models/apiResponse';
-import { CatagoryDTO } from 'src/app/models/catagoryDTO';
-import { CatagoryService } from 'src/app/services/catagory.service';
+import { BookDTO } from 'src/app/models/bookDTO';
+import { BookService } from 'src/app/services/book.service';
 
 @Component({
-  selector: 'app-catagories',
-  templateUrl: './catagories.component.html',
-  styleUrls: ['./catagories.component.css']
+  selector: 'app-get-books',
+  templateUrl: './get-books.component.html',
+  styleUrls: ['./get-books.component.css']
 })
-export class CatagoriesComponent implements OnInit {
+export class GetBooksComponent implements OnInit {
 
-  catagories: Array<CatagoryDTO>;
-  
+  books: Array<BookDTO>;
 
-  constructor(private categoryService: CatagoryService, 
+  constructor(private bookService: BookService, 
     private spinner: NgxSpinnerService,
-    private notifier: NotifierService,
-    private router: Router) { }
+    private notifier: NotifierService) { }
 
   ngOnInit() {
     this.spinner.show();
@@ -29,12 +26,8 @@ export class CatagoriesComponent implements OnInit {
     
   }
 
-  onClick(id:number){
-    this.router.navigate(['/category/books/' + id])
-  }
-
   onDelete(id:number){
-    this.categoryService.deleteCatagories(id)
+    this.bookService.deleteBook(id)
     .subscribe((res:ApiResponse)=>{
       if(res.isSuccessful){
         this.loadCatagories()
@@ -43,13 +36,12 @@ export class CatagoriesComponent implements OnInit {
   }
 
   loadCatagories(){
-    this.categoryService.getCategoties()
+    this.bookService.getBooks()
     .subscribe((res:ApiCollectionResponse)=>{
         if(res.isSuccessful){
           console.log(res.data)
-          this.catagories = res.data
+          this.books = res.data
         }
     })
   }
-
 }

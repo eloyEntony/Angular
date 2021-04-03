@@ -1,0 +1,9 @@
+<button type="button" class="btn btn-dark m-3" [routerLink]="['/books']">Back</button>
+
+<div class="container">
+  <div class="form-group">
+    <label for="exampleInputEmail1">Book name</label>
+    <input  [(ngModel)]="currentBook" type="text" class="form-control" id="exampleInputEmail1">
+  </div>
+  <button type="submit" class="btn btn-dark" (click)="onClick(currentBook)">Edit book</button>
+</div>

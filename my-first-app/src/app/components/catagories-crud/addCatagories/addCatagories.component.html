@@ -1,0 +1,10 @@
+
+<div class="container">
+  <button type="button" class="btn btn-dark m-3" [routerLink]="['/category']">Back</button>
+
+  <div class="form-group">
+    <label for="exampleInputEmail1">Category name</label>
+    <input [(ngModel)]="newCategoty.name" type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter category">
+  </div>
+  <button (click)="onAdd()" type="submit" class="btn btn-dark">Add category</button>
+</div>
