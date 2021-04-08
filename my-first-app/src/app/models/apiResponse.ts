@@ -7,3 +7,10 @@ export class ApiResponse {
 export class ApiCollectionResponse extends ApiResponse{
     data: Array<any>;
 }
+
+
+
+export class ApiLoginResponse{
+    isSuccessful: boolean
+    token: string;
+}

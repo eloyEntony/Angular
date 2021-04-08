@@ -10,7 +10,7 @@ import { SecondComponent } from './components/second/second.component';
 import { analyzeNgModules } from '@angular/compiler';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AddCatagoriesComponent } from './components/catagories-crud/addCatagories/addCatagories.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UpdateCategoryComponent } from './components/catagories-crud/update-category/update-category.component';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -20,6 +20,8 @@ import { UpdateBookComponent } from './components/book-crud/update-book/update-b
 import { GetBooksComponent } from './components/book-crud/get-books/get-books.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { BooksInCategoryComponent } from './components/books-in-category/books-in-category.component';
+import { LoginComponent } from './components/login/login.component';
+import { RegisterComponent } from './components/register/register.component';
 
 const customNotifierOptions: NotifierOptions = {
   position: { horizontal: { position: 'right' }, vertical: { position: 'top' } }
@@ -37,7 +39,9 @@ const customNotifierOptions: NotifierOptions = {
     UpdateBookComponent,
     GetBooksComponent,
     NavbarComponent,
-    BooksInCategoryComponent
+    BooksInCategoryComponent,
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
@@ -47,7 +51,8 @@ const customNotifierOptions: NotifierOptions = {
     FormsModule,
     NgxSpinnerModule,
     BrowserAnimationsModule,
-    NotifierModule.withConfig(customNotifierOptions)
+    NotifierModule.withConfig(customNotifierOptions),
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

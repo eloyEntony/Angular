@@ -8,10 +8,16 @@ import { AddCatagoriesComponent } from './components/catagories-crud/addCatagori
 import { CatagoriesComponent } from './components/catagories-crud/catagories/catagories.component';
 import { UpdateCategoryComponent } from './components/catagories-crud/update-category/update-category.component';
 import { FirstComponent } from './components/first/first.component';
+import { LoginComponent } from './components/login/login.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { RegisterComponent } from './components/register/register.component';
 
 const routes: Routes = [
 
+  {path: 'account', children:[
+    {path:'login', component: LoginComponent},
+    {path:'register', component: RegisterComponent}
+  ]},
   
   {path: 'category', children:[
     {path: '', component: CatagoriesComponent},
@@ -25,7 +31,8 @@ const routes: Routes = [
     {path: 'add', component: AddBookComponent},
     {path: 'update/:id', component: UpdateBookComponent},
 
-  ]}
+  ]},
+  { path: '**', redirectTo: '' }
 
   
 ];
