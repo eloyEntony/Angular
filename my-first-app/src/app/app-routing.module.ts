@@ -11,12 +11,14 @@ import { FirstComponent } from './components/first/first.component';
 import { LoginComponent } from './components/login/login.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { RegisterComponent } from './components/register/register.component';
+import { UserViewComponent } from './components/user-profile/user-view/user-view.component';
 
 const routes: Routes = [
 
   {path: 'account', children:[
     {path:'login', component: LoginComponent},
-    {path:'register', component: RegisterComponent}
+    {path:'register', component: RegisterComponent},
+    {path:'user', component:UserViewComponent}
   ]},
   
   {path: 'category', children:[

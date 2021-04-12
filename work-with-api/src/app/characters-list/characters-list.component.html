@@ -1,6 +1,10 @@
-
-
 <div class="content">
+
+  <select class="form-select" style="height: 37px; width: 200px; margin: 0;"
+  [(ngModel)]="selectedValue" (change)="SelectHouse()">
+    <option *ngFor="let item of home" value="{{item.name}}">
+      {{item.name}}</option>          
+  </select> 
 
   <div fxLayout="row wrap" fxLayoutGap="16px grid">
     <div fxFlex="25%" fxFlex.xs="100%" fxFlex.sm="33%" *ngFor="let item of characters">

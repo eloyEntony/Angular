@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { NotifierService } from 'angular-notifier';
 import { ApiResponse } from 'src/app/models/apiResponse';
 import { UserDTO } from 'src/app/models/userDTO';
 import { AccountService } from 'src/app/services/account.service';
@@ -21,7 +22,8 @@ export class RegisterComponent implements OnInit {
       fullname: ''
     }
 
-    constructor(private router: Router, private accountService: AccountService) { }
+    constructor(private router: Router, private accountService: AccountService,
+      private notifier: NotifierService) { }
 
     ngOnInit() {}
 
@@ -33,6 +35,9 @@ export class RegisterComponent implements OnInit {
           if(res.isSuccessful){
             console.log(res.message)
             this.router.navigate(['account/login'])
+          }
+          else{
+            this.notifier.notify('error', 'bad data')
           }
         })
     }

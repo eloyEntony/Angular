@@ -21,4 +21,9 @@ constructor(private http: HttpClient) { }
   getStaff():Observable<Array<characterDTO>>{
     return this.http.get<Array<characterDTO>>('http://hp-api.herokuapp.com/api/characters/staff')
   }
+
+  getFromHouse(house:string):Observable<Array<characterDTO>>{
+    return this.http.get<Array<characterDTO>>('http://hp-api.herokuapp.com/api/characters/house/'+ house)
+  }
+
 }

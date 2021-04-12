@@ -29,7 +29,8 @@ export class AccountService {
 
   logout() {
       // remove user from local storage to log user out
-      localStorage.removeItem('currentUser');
+      localStorage.removeItem('id_token');
+      
       //this.currentUserSubject.next(null);
   }
 

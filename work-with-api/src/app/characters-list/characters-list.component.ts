@@ -9,6 +9,15 @@ import { characterDTO } from '../models/characterDTO';
 })
 export class CharactersListComponent implements OnInit {
 
+  home = [
+    {id: 1, name: "Gryffindor"},
+    {id: 2, name: "Hufflepuff"},
+    {id: 3, name: "Ravenclaw"},
+    {id: 4, name: "Slytherin"}
+  ];
+
+  selectedValue:string
+
   characters:Array<characterDTO>
   constructor(private charactersService:CharactersService) { }
 
@@ -22,5 +31,15 @@ export class CharactersListComponent implements OnInit {
         console.log(res)
         this.characters = res
     })
+  }
+
+  SelectHouse(){
+    console.log(this.selectedValue)
+    this.charactersService.getFromHouse(this.selectedValue).subscribe(
+      (res:Array<characterDTO>)=>{
+        console.log(res)
+        this.characters = res
+    }
+    )
   }
 }

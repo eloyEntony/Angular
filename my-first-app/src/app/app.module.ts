@@ -22,6 +22,8 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { BooksInCategoryComponent } from './components/books-in-category/books-in-category.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
+import { UserViewComponent } from './components/user-profile/user-view/user-view.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 const customNotifierOptions: NotifierOptions = {
   position: { horizontal: { position: 'right' }, vertical: { position: 'top' } }
@@ -41,7 +43,8 @@ const customNotifierOptions: NotifierOptions = {
     NavbarComponent,
     BooksInCategoryComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    UserViewComponent
   ],
   imports: [
     BrowserModule,
@@ -52,7 +55,8 @@ const customNotifierOptions: NotifierOptions = {
     NgxSpinnerModule,
     BrowserAnimationsModule,
     NotifierModule.withConfig(customNotifierOptions),
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FontAwesomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]
